@@ -22,7 +22,7 @@ fun HomeTopAppBar() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 20.dp, vertical = 10.dp)
+            .padding(horizontal = 20.dp, vertical = 20.dp)
             .statusBarsPadding(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
