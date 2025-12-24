@@ -1,6 +1,8 @@
 package com.example.popsa_clone.ui.home.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,8 +19,17 @@ import androidx.compose.ui.unit.sp
 import com.example.popsa_clone.domain.model.Product
 
 @Composable
-fun GridProductCard(product: Product) {
-    Column() {
+fun GridProductCard(
+    product: Product,
+    onSelectProduct: () -> Unit
+) {
+    Column(
+        modifier = Modifier.clickable(
+            interactionSource = MutableInteractionSource(),
+            indication = null,
+            onClick = { onSelectProduct() }
+        )
+    ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -26,7 +37,7 @@ fun GridProductCard(product: Product) {
                 .background(
                     color = Color.Blue,
                     shape = RoundedCornerShape(19.dp)
-                ),
+                )
         ) {
             // Async Image
         }
