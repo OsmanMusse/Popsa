@@ -25,14 +25,21 @@ import com.example.popsa_clone.ui.home.components.HomeTopAppBar
 
 @Composable
 fun HomeRoute(
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel(),
+    onSelectProduct: (String) -> Unit
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
-    HomeScreen(state)
+    HomeScreen(
+        state = state,
+        onSelectProduct = { onSelectProduct(it) }
+    )
 }
 
 @Composable
-fun HomeScreen(state: HomeViewModel.HomeUiState) {
+fun HomeScreen(
+    state: HomeViewModel.HomeUiState,
+    onSelectProduct: (String) -> Unit
+) {
     Scaffold(
         topBar = { HomeTopAppBar() },
         containerColor = Color.White
@@ -60,7 +67,9 @@ fun HomeScreen(state: HomeViewModel.HomeUiState) {
                 }) { product ->
                 when (product.type) {
                     ProductType.FEATURED -> FeaturedProductCard(product)
-                    ProductType.GRID_ITEM -> GridProductCard(product)
+                    ProductType.GRID_ITEM -> GridProductCard(
+                        product = product,
+                        onSelectProduct = { onSelectProduct(product.name) })
                 }
 
             }
