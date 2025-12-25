@@ -30,7 +30,10 @@ fun NavGraphBuilder.homeGraph(navController: NavController) {
 
         composable<ProductDetails> { backStackEntry ->
             val product: ProductDetails = backStackEntry.toRoute()
-            ProductDetailsScreen(product.title)
+            ProductDetailsScreen(
+                topAppBarTitle = product.title,
+                onNavIconClicked = { navController.popBackStack() }
+            )
         }
     }
 }
