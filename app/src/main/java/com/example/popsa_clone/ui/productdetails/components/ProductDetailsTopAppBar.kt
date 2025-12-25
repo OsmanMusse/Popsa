@@ -30,7 +30,7 @@ fun ProductDetailsTopAppBar(
                 text = title,
                 fontWeight = FontWeight.Medium,
                 fontSize = 20.sp,
-                color = Color(0xFF5B5E60)
+                color = Color(0xFF585858)
             )
         },
         navigationIcon = {
@@ -39,7 +39,7 @@ fun ProductDetailsTopAppBar(
             ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    tint = Color(0xFF5B5E60),
+                    tint = Color(0xFF585858),
                     contentDescription = null,
                 )
             }
