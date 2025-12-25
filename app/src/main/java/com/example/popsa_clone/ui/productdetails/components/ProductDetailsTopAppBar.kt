@@ -44,7 +44,7 @@ fun ProductDetailsTopAppBar(
                 )
             }
 
-            Spacer(modifier = Modifier.width(70.dp))
+            Spacer(modifier = Modifier.width(65.dp))
         }
     )
 }
