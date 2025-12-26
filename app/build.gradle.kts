@@ -64,6 +64,8 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.hilt.android)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.okhttp)
     ksp(libs.hilt.android.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
