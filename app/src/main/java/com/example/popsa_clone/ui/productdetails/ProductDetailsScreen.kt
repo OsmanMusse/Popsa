@@ -33,7 +33,9 @@ fun ProductDetailsScreen(
             modifier = Modifier.padding(innerPadding)
         ) {
             ProductSubTitle()
-            ProductOptionCard(imageUrl = "https://popsa.com/_next/image/?url=https%3A%2F%2Fcdn.popsa.io%2Fnew-product-photography%2Foffering%2FCALENDAR_LANDSCAPE_MEDIUM.png&w=1920&q=75")
+            ProductOptionCard(
+                isPopularOption = true,
+                imageUrl = "https://popsa.com/_next/image/?url=https%3A%2F%2Fcdn.popsa.io%2Fnew-product-photography%2Foffering%2FCALENDAR_LANDSCAPE_MEDIUM.png&w=1920&q=75")
             Spacer(Modifier.height(15.dp))
             ProductOptionCard(imageUrl = "https://popsa.com/_next/image/?url=https%3A%2F%2Fcdn.popsa.io%2Fnew-product-photography%2Foffering%2FCALENDAR_PORTRAIT.png&w=1920&q=75")
         }

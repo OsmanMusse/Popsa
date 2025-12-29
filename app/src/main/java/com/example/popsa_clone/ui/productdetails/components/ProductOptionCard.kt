@@ -24,7 +24,10 @@ import com.example.popsa_clone.ui.home.components.FromPriceText
 import com.example.popsa_clone.ui.home.components.PriceTextSize
 
 @Composable
-fun ProductOptionCard(imageUrl: String) {
+fun ProductOptionCard(
+    isPopularOption: Boolean = false,
+    imageUrl: String
+) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -38,10 +41,10 @@ fun ProductOptionCard(imageUrl: String) {
     ) {
         Column(
             modifier = Modifier
-                .padding((20.dp))
+                .padding(top = 20.dp, start = 20.dp)
                 .fillMaxHeight()
         ) {
-            MostPopularBadge()
+            if (isPopularOption) MostPopularBadge()
             ProductOptionTitle(title = "Landscape Wall Calendar")
             Spacer(Modifier.height(14.dp))
             FromPriceText(
@@ -51,7 +54,6 @@ fun ProductOptionCard(imageUrl: String) {
                 emphasized = true
             )
             ProductImage(imageUrl = imageUrl)
-            ProductImage(imageUrl = imageUrl)
         }
 
     }
@@ -60,8 +62,8 @@ fun ProductOptionCard(imageUrl: String) {
 @Composable
 fun ProductImage(
     imageUrl: String
-){
-    Row {
+) {
+    Row(modifier = Modifier.fillMaxHeight()) {
         Spacer(modifier = Modifier.weight(1F))
         AsyncImage(
             model = imageUrl,
@@ -94,5 +96,5 @@ fun ProductOptionTitle(title: String) {
 @Preview()
 @Composable
 fun ProductOptionCardPreview() {
-    ProductOptionCard("")
+    ProductOptionCard(true, "")
 }
