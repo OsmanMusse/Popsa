@@ -3,7 +3,9 @@ package com.example.popsa_clone.ui.productdetails.components
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -17,11 +19,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 import com.example.popsa_clone.ui.home.components.FromPriceText
 import com.example.popsa_clone.ui.home.components.PriceTextSize
 
 @Composable
-fun ProductOptionCard() {
+fun ProductOptionCard(imageUrl: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -36,6 +39,7 @@ fun ProductOptionCard() {
         Column(
             modifier = Modifier
                 .padding((20.dp))
+                .fillMaxHeight()
         ) {
             MostPopularBadge()
             ProductOptionTitle(title = "Landscape Wall Calendar")
@@ -46,7 +50,23 @@ fun ProductOptionCard() {
                 priceTextSize = PriceTextSize.FEATURED,
                 emphasized = true
             )
+            ProductImage(imageUrl = imageUrl)
+            ProductImage(imageUrl = imageUrl)
         }
+
+    }
+}
+
+@Composable
+fun ProductImage(
+    imageUrl: String
+){
+    Row {
+        Spacer(modifier = Modifier.weight(1F))
+        AsyncImage(
+            model = imageUrl,
+            contentDescription = null
+        )
     }
 }
 
@@ -74,5 +94,5 @@ fun ProductOptionTitle(title: String) {
 @Preview()
 @Composable
 fun ProductOptionCardPreview() {
-    ProductOptionCard()
+    ProductOptionCard("")
 }
